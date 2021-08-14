@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uprak</title>
+</head>
+<body>
+    <script>
+            var pengirim = prompt('Masukan Nama Pengirim')
+            document.write ('<b>Nama Pengirim = </b>', pengirim,'<br>')
+
+            var penerima = prompt('Masukan Nama Penerima')
+            document.write ('<b>Nama Penerima = </b>', penerima,'<br>')
+            
+            var jarak =prompt('Masukan Jarak Pengiriman(km), 1 km = Rp.10.000')
+            alert('jarak pengiriman yang melebihi 50.000 akan mendapatkan potongan harga sebesar 10%')
+            document.write ('<b>Jarak Pengiriman(km) = </b>', jarak,'<br>')
+
+            var alamat = prompt('Masukan Alamat Penerima')
+            document.write('<b>Alamat Penerima = </b>', alamat,'<br>')
+
+            var jenis = prompt('Masukan Jenis Barang')
+            document.write('<b>Jenis Barang = </b>', jenis,'<br>')
+
+            var berat = prompt('Masukan Berat Barang(kg), 1kg = Rp.5.000')
+            alert('berat barang yang melebihi 100.000 akan mendapat potongan harga sebesar 5%')
+            document.write('<b>Berat Barang(kg) = </b>', berat,'<br>')
+
+            var jarak = jarak*10000
+            var berat = berat*5000
+            var total1 = parseInt(jarak) + parseInt(berat)
+            document.write('<b>Total Biaya = </b>', total1,'<br>')
+
+            var diskonjarak
+           if(jarak >= 50000){
+               diskonjarak = jarak*10/100
+           }else {
+               diskonjarak = 0
+           }
+           document.write('<b>Potongan Jarak pengiriman </b> =', diskonjarak, '<br>')
+
+           var diskonberat
+           if(berat >= 100000){
+               diskonberat = berat*5/100
+           }else{
+               diskonberat = 0
+           }
+           document.write('<b>Potongan Berat Barang = </b>', diskonberat, '<br>')
+
+           var total2 = parseInt(diskonjarak) + parseInt(diskonberat)
+           var total3 = parseInt(total1) - parseInt(total2)
+           document.write('<b>Total Potongan = </b>', total2, '<br>')
+           document.write('<b>Total Biaya Pembayaran = </b>', total3,'<br>')
+
+
+
+
+    </script>
+</body>
+</html>
