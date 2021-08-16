@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Nested For adalah bentuk perulangan dimana terdapat perulangan For di dalam perulangan For yang lain.
+        // Membuat sebuah perulangan di dalam sebuah perulangan
+
+        for(x = 1; x<=6; x++){
+            for(y = 1; y<=6; y++){
+                document.write('Hallo')
+            }
+            document.write("<br>")
+        }
+
+        // Perulangan foreach biasanya digunakan untuk mencetak item di dalam array.
+        // Perulangan ini termasuk dalam perulangan counted loop, karena jumlah perulangannya akan ditentukan oleh panjang dari array.
+        
+        var bunga = ["Mawar", "Melati", "Anggrek", "Tulip","Teratai"];
+        bunga.forEach((X) => {
+            document.write("<p>" + X + "</p>");
+        });
+    </script>
+</body>
+</html>
