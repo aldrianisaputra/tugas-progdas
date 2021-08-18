@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>uprak if bangun datar dan tugas function</title>
+</head>
+<body>
+    <script>
+    
+    var datar = prompt('Anda Ingin Menghitung Luas Apa? Pilihan : Persegi, Belah Ketupat, Jajargenjang, dan Segitiga.')
+
+        if (datar == 'Persegi') {
+            alert('Rumus Luas Persegi adalah sisi x sisi')
+            var x = prompt('Masukan Sisi ')
+            function persegi(a, b) {
+                var hasil = (a*b)
+                return hasil;
+            }
+            var nilai = persegi(x, x)
+            document.write('<b> Persegi </b> <br>')
+            document.write('Sisi = ', x, '<br>')
+            document.write('Hasil Jawaban = ', nilai)
+
+        }else if (datar == 'Belah Ketupat'){
+            alert('Rumus Luas Belah Ketupat adalah 1/2 x d1 x d2')
+            var d1 = prompt('Masukan Diagonal 1')
+            var d2 = prompt('Masukan Diagonal 2')
+            function belahKetupat(a, b) {
+                var hasil = (a*b)/2;
+                return hasil
+            }
+            var nilai = belahKetupat(d1, d2)
+            document.write('<b>Belah Ketupat</b> <br>')
+            document.write('Diagonal 1 = ', d1,'<br>')
+            document.write('Diagonal 2 = ', d2, '<br>')
+            document.write('Hasil Jawaban = ', nilai)
+
+        }else if(datar == 'Jajargenjang'){
+            alert('Rumus Luas Jajargenjang adalah alas x tinggi')
+            var a = prompt('Masukan Alas')
+            var t = prompt('Masukan Tinggi')
+            function jajarGenjang(a,b) {
+                var hasil = (a*b)
+                return hasil
+            }
+            var nilai = jajarGenjang(a, t)
+            document.write('<b>Jajargenjang</b> <br>')
+            document.write('Alas = ', a, '<br>')
+            document.write('Tinggi = ', t, '<br>')
+            document.write('Hasil Jawaban = ', nilai)
+
+        }else if(datar == 'Segitiga'){
+            alert('Rumus Luas Segitiga adalah 1/2 x alas x tinggi')
+            var a = prompt('Masukan Alas')
+            var t = prompt('Masukan Tinggi')
+            function segitiga(a,b) {
+                var hasil = (a*b)/2;
+                return hasil
+            }
+            var nilai = segitiga(a, t)
+            document.write('<b>Segitiga</b <br>')
+            document.write('Alas = ', a,'<br>')
+            document.write('Tinggi = ', t,'<br>')
+            document.write('Hasil Jawaban = ', nilai)
+
+        }else{
+            document.write('Anda Tidak Memasukan Apapun! Tolong Masukan Nama Bangun Datar Yang Anda Ingin Hitung')
+        }
+
+
+
+
+    </script>
+</body>
+</html>
