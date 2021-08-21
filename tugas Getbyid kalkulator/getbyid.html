@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tugas Kalkulator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Acme&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+
+</head>
+<body style="text-align: center;" >
+
+    <h1 style= "font-family:'Acme', sans-serif;">Kalkulator</h1>
+
+    <p style= "font-family:'Acme', sans-serif;">Angka Pertama :</p>
+    <input type="number" placeholder="Masukan Angka Pertama" id="angkapertama" >
+    <p style= "font-family:'Acme', sans-serif;">Angka Kedua :</p>
+    <input type="number" placeholder="Masukan Angka Kedua" id="angkakedua">
+    <p style= "font-family:'Acme', sans-serif;">Hasil Hitung :</p>
+    <input type="number" placeholder="Hasil" id="hasil">
+
+    <br><br>
+
+    <button onclick="tambah()"> + </button>
+    <button onclick="kurang()"> - </button>
+    <button onclick="kali()"> * </button>
+    <button onclick="bagi()"> / </button>
+
+    <script>
+        function tambah() {
+            var angka1 = document.getElementById("angkapertama").value
+            var angka2 = document.getElementById("angkakedua").value
+
+            var angkabaru1 = Number(angka1)
+            var angkabaru2 = Number(angka2)
+            
+            var hasil = angkabaru1+angkabaru2
+
+            document.getElementById("hasil").value = hasil
+        }
+        function kurang() {
+            var angka1 = document.getElementById("angkapertama").value
+            var angka2 = document.getElementById("angkakedua").value
+
+            var angkabaru1 = Number(angka1)
+            var angkabaru2 = Number(angka2)
+            
+            var hasil = angkabaru1-angkabaru2
+
+            document.getElementById("hasil").value = hasil
+        }
+        function kali() {
+            var angka1 = document.getElementById("angkapertama").value
+            var angka2 = document.getElementById("angkakedua").value
+
+            var angkabaru1 = Number(angka1)
+            var angkabaru2 = Number(angka2)
+            
+            var hasil = angkabaru1*angkabaru2
+
+            document.getElementById("hasil").value = hasil
+        }
+        function bagi() {
+            var angka1 = document.getElementById("angkapertama").value
+            var angka2 = document.getElementById("angkakedua").value
+
+            var angkabaru1 = Number(angka1)
+            var angkabaru2 = Number(angka2)
+            
+            var hasil = angkabaru1/angkabaru2
+
+            document.getElementById("hasil").value = hasil
+        }
+    </script>
+
+    
+
+</body>
+</html>
