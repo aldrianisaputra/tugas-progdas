@@ -1,0 +1,42 @@
+body {
+    background-color 	:#FFAA4C;
+	text-align			: left;
+	font-family			: Verdana, Tahoma, Helvetica;
+	font-size			: 14px;
+}
+
+#table {
+    width: 100%;
+    border: 1;
+	background-color: #FFAA4C;
+}
+
+#header {
+    width: 100%;
+    height: 250;
+}
+
+#menu{
+	width				: 100%;
+	height				: 40px;
+	background-color	:#FFAA4C(0, 128, 38);
+
+}
+/*pengaturan menu*/
+#menu ul {
+	margin 				: 0;
+	padding 			: 0;
+	list-style 			: none;
+}
+
+#menu ul li {
+	float 				: center;
+}
+
+#menu ul li a {
+	float 				: left;
+	color 				: #000080;
+	padding 			: 12px 20px;
+	text-decoration 	: none;
+	background 			:#FFAA4C;
+}
