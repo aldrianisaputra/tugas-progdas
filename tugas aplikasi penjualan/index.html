@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+    <title>Fashion Store</title>
+    <style>
+        .jumbotron{
+            height: 350px;
+            background-image: url(https://images.pexels.com/photos/6347888/pexels-photo-6347888.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+            background-size: cover;        
+            background-position-y: -190px;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            text-align: right;
+            color: #F6A9A9;
+            
+        }
+        .judullist{
+            height: 50px;
+        }
+    </style>
+  </head>
+  <body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">Fashion Store</h1>
+          <p class="lead">good thinks to take</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-4">
+                <div class="judullist bg-dark rounded text-center text-white pt-2">List item</div>
+
+                <div class="listkeranjang" id="listkeranjang">
+                   
+                </div>
+
+
+            <table width="100%">
+                <tbody >
+                    <tr>
+                        <td>Diskon (5%)</td>
+                        <td>Rp. <span id="diskon"></span></td>
+                    </tr>
+                    <tr>
+                        <td>PPN (10%)</td>
+                        <td>Rp. <span id="pajak"></span></td>
+                    </tr>
+                    <tr class="bg-dark text-white">
+                        <td>Total Bayar</td>
+                        <td>Rp. <span id="total bayar"></span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <button type="button" class="btn btn-primary mt-3 btn-block">Bayar</button>
+            </div>
+
+            <div class="col-8" id="listbarang">
+                <!-- List produkk -->
+
+                
+               
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var namabarang =['Hoddie','Rok','Celana Wanita','Cardigan Rajut', 'Turtleneck','Kaos']
+        var hargabarang = [ 150000, 100000, 60000, 80000, 70000,30000]
+        var gambarbarang = [
+        "https://cf.shopee.co.id/file/b10e404e477a5bd24be8f2f9ea058767",
+        "https://id-test-11.slatic.net/p/a6eb517cbc676afe0fa4eb9288af90e5.jpg",
+        "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//104/MTA-11965990/no_brand_mizu_pants_-_celana_bahan_-_celana_panjang_wanita-_terlaris__full01_cmio78ma.jpg",
+        "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcT6xsk64lJP1-M3GDUcvTvmIJ861UZSRflZjEnoXCpmDS3DYGXA9CPy43WQXKJEGAf-RmfaAqVsUeTxT0UfxzSZpBovlefZdbs6KFS1P6CaWYGcE8IOX4bQ&usqp=CAE",
+       "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcQWioL9MXt8tFyxUn8XzJ7yUWAnLXIvy_wMS4MwbssFCoMU4t0Fx8U3vAcqFrD8v-Cm7hU97mUgaWepMj572NGmSKc4E8nhcyG8QME8FLqy&usqp=CAE",
+       "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcQf8VEhPJYwiPxEcgKFhq8ssxUB3GW9Bu8V3ovNyPsmCTcttw9zwnWh_wqvPOzgC_XzFgM2UNJ-FCcLehR4wu77yFN48T5zARw_IBF1uX-Utr9ztRY6LzWjOw&usqp=CAE"
+        
+        
+    ]
+    
+    var listbarang = document.getElementById('listbarang')
+    
+
+    var namabarang_keranjang = []
+    var hargabarang_keranjang = []
+
+    function showlistbarang(){
+        listbarang.innerHTML=''
+        for (let i = 0; i< namabarang.length; i++) {
+        listbarang.innerHTML +='<div class="card float-left mr-3 mb-3" style="width: 12rem;">'+
+       '<img src="'+gambarbarang[i]+'"class="card-img-top" alt="...">'+
+       '<div class="card-body">'+
+        '<h5 class="card-title">'+namabarang[i]+'</h5>'+
+        '<p class="card-text">'+hargabarang[i]+'</p>'+
+        '<a href="#" class="btn btn-primary" onclick="addlistitem('+i+')">Beli</a>'+
+       ' </div>'+
+       '</div>'
+        }
+    }
+
+
+    function addlistitem(id) {
+        namabarang_keranjang.push(namabarang[id])
+        hargabarang_keranjang.push(hargabarang[id])
+
+        showlistkeranjang()
+        
+    }
+    var listkeranjang = document.getElementById('listkeranjang')
+    var tampilandiskon = document.getElementById('diskon')
+    var tampilanpajak = document.getElementById('pajak')
+    var tampilantotalbayar =document.getElementById('total bayar')
+
+    function showlistkeranjang() {
+        listkeranjang.innerHTML=''
+
+
+        var diskon = 0
+        var pajak = 0
+        var hargatotal = 0
+        var totalbayar = 0
+        for (let i = 0; i < namabarang_keranjang.length; i++) {
+           listkeranjang.innerHTML +='<div class="card mt-3 mb-3" style="width: 22rem;">'+
+            '<div class="card-body">'+
+            '<h5 class="card-title">'+namabarang_keranjang[i]+'</h5>'+
+            '<p class="card-text">'+hargabarang_keranjang[i]+'</p>'+
+            '<p>Qty ; 1</p>'+
+            '<a href="#" class="btn btn-danger float-right" onclick="deleteitem('+i+')">Hapus</a>'+
+            '</div>'+
+            '</div>'
+
+            hargatotal = hargabarang_keranjang[i]+hargatotal
+
+
+
+            if (totalbayar>600000) {
+                diskon = totalbayar*0.05
+            }else{
+                diskon= 0
+            }
+
+            totalbayar = hargatotal-diskon
+
+            pajak = totalbayar*0.1
+            
+            var totalbelanja = totalbayar - pajak
+            tampilanpajak.innerHTML= pajak
+            tampilandiskon.innerHTML= diskon
+            tampilantotalbayar.innerHTML= totalbelanja
+        }
+        
+    }
+    function deleteitem(id) {
+        namabarang_keranjang.splice(id,1)
+        hargabarang_keranjang.splice(id,1)
+
+        showlistkeranjang()
+    }
+
+    showlistbarang()
+
+
+
+
+
+
+
+    </script>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: jQuery and Bootstrap Bundle (includes Popper) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-+YQ4JLhjyBLPDQt//I+STsc9iw4uQqACwlvpslubQzn4u2UU2UFM80nGisd026JF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
